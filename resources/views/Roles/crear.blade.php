@@ -10,10 +10,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                        
                         @if ($errors->any())                                                
                             <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                            <strong>¡Revise los campos!</strong>                        
+                            <strong>¡Revise los campos!</strong>                
                                 @foreach ($errors->all() as $error)                                    
                                     <span class="badge badge-danger">{{ $error }}</span>
                                 @endforeach                        
@@ -22,14 +21,13 @@
                             </button>
                             </div>
                         @endif
-
-
+                       
                         {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="">Nombre del Rol:</label>                                    
-                                    {!! Form::text('name', null, array('class' => 'form-control')) !!}
+                                    {!! Form::text('name', null, array('class' => 'form-control', 'required' => 'required')) !!}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

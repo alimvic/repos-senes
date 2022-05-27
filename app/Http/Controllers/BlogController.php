@@ -8,11 +8,13 @@ use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Blog;
+use App\Models\User;
 use PDF as GlobalPDF;
 use Dompdf\Dompdf;
 use Dompdf\Option;
 use Dompdf\Exception as DomException;
 use Dompdf\Options;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class BlogController extends Controller
 {
@@ -28,19 +30,26 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {       
          //Con paginación
-         $blogs = Blog::paginate(5);
-         return view('blogs.index',compact('blogs'));
+         //$blogs = Blog::paginate(5);
+         $buscarpor=$request->get('buscarpor');
+        $blogs = Blog::where('nombres','like','%'.$buscarpor.'%')-> paginate(5);
+        //return view('usuarios.index',compact('usuarios',));
+
+         return view('blogs.index',compact('blogs', 'buscarpor'));
+         
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
-    public function pdf()
-    {       
-        $blogs = Blog::all();
-        $pdf = PDF::loadView('blogs.pdf', compact('blogs'));
-        //return $pdf->stream();
+    public function pdf($id)
+    {      
+        //$pdf = PDF::loadView('blogs.pdf',  compact('blogs'));
+        $blogs = Blog::find($id);
+        $pdf = PDF::loadView('blogs.pdf',  compact('blogs'));
         $pdf->setPaper('A4', 'landscape');
+        //return $pdf->stream();
+        
         return $pdf->download('Formulario.pdf');
 
          //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
@@ -79,8 +88,7 @@ class BlogController extends Controller
             'justificacion' => 'required',
             'fecha_vigencia' => 'required',
             'nom_jef' => 'required',
-            'apell_jef' => 'required',
-            'cargo_jef' => 'required',
+            'cargo_jef' => 'required'
         ]);
     
         Blog::create($request->all());
@@ -94,10 +102,12 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-       // $blogs = Blog::find($id);
-      //  return view('blogs.pdf', compact('blogs'));
+        $blogs = Blog::find($id);
+        //dd($blogs);
+        return view('blogs.pdf',compact('blogs'));
+
     }
 
     /**
@@ -134,7 +144,6 @@ class BlogController extends Controller
             'justificacion' => 'required',
             'fecha_vigencia' => 'required',
             'nom_jef' => 'required',
-            'apell_jef' => 'required',
             'cargo_jef' => 'required',
         ]);
     

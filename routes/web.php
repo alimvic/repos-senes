@@ -31,7 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('blogs/pdf', [App\Http\Controllers\BlogController::class, 'pdf'])->name('blogs.pdf');
+Route::get('blogs/pdf/{blogs}', [App\Http\Controllers\BlogController::class, 'pdf'])->name('blogs.pdf');
+
+
 //y creamos un grupo de rutas protegidas para los controladores
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);

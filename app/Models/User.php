@@ -15,13 +15,16 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
-
+    public function blogs(){
+        return $this->hasMany(Blogs::class, 'id');
+    }
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        
         'name',
         'email',
         'password',

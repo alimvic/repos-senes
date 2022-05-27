@@ -43,27 +43,28 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="ci">Numero de cedula</label>
-                                       <input type="text" name="ci" class="form-control" required minlength="10" maxlength="10" size="10">
+                                       <input type="text" name="ci" class="form-control"  required minlength="10" maxlength="10" size="10" required="">
                                        
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="cargo_user">Cargo</label>
-                                       <input type="text" name="cargo_user" class="form-control" required="">
+                                       <input type="text" name="cargo_user" class="form-control" required="" >
                                     </div>
                                 </div>
+                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="telefono">Telefono</label>
-                                       <input type="text" name="telefono" class="form-control" required minlength="10" maxlength="10" size="10">
+                                       <input type="text" name="telefono" class="form-control" pattern="[0-9]{10}" required minlength="5" maxlength="10" size="10">
                                        
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="ext">EXT.</label>
-                                       <input type="text" name="ext" class="form-control" required minlength="4" maxlength="5" size="10">
+                                       <input type="text" name="ext" class="form-control"  required minlength="5" maxlength="5" size="5" required="" >
                                        
                                     </div>
                                 </div>
@@ -86,7 +87,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="desc_requerimiento">Descripcion del requerimiento</label>
-                                       <input type="text" name="desc_requerimiento" class="form-control" required="">
+                                       <input type="text" name="desc_requerimiento" class="form-control" required="" required minlength="10" maxlength="170" size="10">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -98,7 +99,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="justificacion">Justificacion </label>
-                                       <input type="text" name="justificacion" class="form-control" required="">
+                                       <input type="text" name="justificacion" class="form-control" required="" required minlength="10" maxlength="170" size="10">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -112,17 +113,10 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                       <label for="nom_jef">Nombres completos</label>
+                                       <label for="nom_jef">Nombres completos del Jefe Inmediato</label>
                                        <input type="text" name="nom_jef" class="form-control" required="">
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                       <label for="apell_jef">Apellidos completos</label>
-                                       <input type="text" name="apell_jef" class="form-control" required="">
-                                    </div>
-                                </div>
-                                
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                        <label for="cargo_jef">Cargo:</label>

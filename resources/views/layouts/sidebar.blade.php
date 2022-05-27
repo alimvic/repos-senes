@@ -1,4 +1,4 @@
-<aside id="sidebar-wrapper">
+<aside id="sidebar-wrapper" >
     <div class="sidebar-brand">
         <img class="navbar-brand-full app-header-logo" src="{{ asset('img/senescyt_logo.png') }}" width="150"
              alt="Infyom Logo">

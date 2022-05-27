@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
+                                <div class="form-group" required="">
                                     <label for="password">Password</label>
                                     {!! Form::password('password', array('class' => 'form-control')) !!}
                                 </div>

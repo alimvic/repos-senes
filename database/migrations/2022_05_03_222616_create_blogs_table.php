@@ -15,14 +15,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
+            $table->id();
             $table->string('nombres', 50);
             $table->string('apellidos', 50);
-            $table->integer('ci')->unique();
+            $table->char('ci', 11);
             $table->text('cargo_user');
-            $table->integer('telefono')->unique();
-            $table->smallInteger('ext')->unique();
+            $table->char('telefono',15);
+            $table->char('ext', 10)->nullable();
             $table->string('unidad');
             $table->date('fecha');
             $table->text('desc_requerimiento');
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->text('justificacion');
             $table->date('fecha_vigencia');
             $table->string('nom_jef');
-            $table->string('apell_jef');
             $table->text('cargo_jef');
             $table->timestamps();
         });

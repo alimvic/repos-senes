@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Editar Blog</h3>
+            <h3 class="page__heading">Editar Formulario</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -42,7 +42,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="ci">Numero de cedula</label>
-                                   <input type="text" name="ci" class="form-control" value="{{ $blog->ci }}">
+                                   <input type="text" name="ci" class="form-control" value="{{ $blog->ci }}" required minlength="10" maxlength="10" size="10">
                                    
                                 </div>
                             </div>
@@ -55,14 +55,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="telefono">Telefono</label>
-                                   <input type="text" name="telefono" class="form-control" value="{{ $blog->telefono }}">
+                                   <input type="text" name="telefono" class="form-control" value="{{ $blog->telefono }}" required minlength="10" maxlength="10" size="10">
                                    
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="ext">EXT.</label>
-                                   <input type="text" name="ext" class="form-control" value="{{ $blog->ext }}">
+                                   <input type="text" name="ext" class="form-control" value="{{ $blog->ext }}" required minlength="4" maxlength="5" size="4">
                                    
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="desc_requerimiento">Descripcion del requerimiento</label>
-                                   <input type="text" name="desc_requerimiento" class="form-control" value="{{ $blog->desc_requerimiento }}">
+                                   <input type="text" name="desc_requerimiento" class="form-control" value="{{ $blog->desc_requerimiento }}" required minlength="10" maxlength="170" size="10">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -94,7 +94,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="justificacion">Justificacion </label>
-                                   <input type="text" name="justificacion" class="form-control" value="{{ $blog->justificacion }}">
+                                   <input type="text" name="justificacion" class="form-control" value="{{ $blog->justificacion }}" required minlength="10" maxlength="170" size="10">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -106,17 +106,11 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                   <label for="nom_jef">Nombres completos</label>
+                                   <label for="nom_jef">Nombres completos del Jefe Inmediato</label>
                                    <input type="text" name="nom_jef" class="form-control" value="{{ $blog->nom_jef }}">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                   <label for="apell_jef">Apellidos completos</label>
-                                   <input type="text" name="apell_jef" class="form-control" value="{{ $blog->apell_jef }}">
-                                </div>
-                            </div>
-                            
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="cargo_jef">Cargo:</label>

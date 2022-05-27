@@ -3,25 +3,30 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Servicios Forms</h3>
+            <h3 class="page__heading">Formularios de nuevos servicios.</h3>
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="table-responsive">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                 
             
                         @can('Crear-formulario')
-                        <a class="btn btn-warning" href="{{ route('blogs.create') }}">Nuevo</a>
+                        <a class="btn btn-warning" href="{{ route('blogs.create') }}">NUEVO</a>
+                        <form class="form-inline my-2 my-lg-2 float-right" role="search" >
+                                <input name="buscarpor" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value="{{$buscarpor}}">
+                                <button class="btn btn-success" type="submit">Buscar</button>
+                              </form>
                         @endcan                 
                         <table class="table table-striped mt-2">
                                 <thead style="background-color:#6777ef">                                     
                                     <th style="display: none;">ID</th>
-                                    <th style="color:#fff;">NOMBRES COMPLETOS: </th>
-                                    <th style="color:#fff;">APELLIDOS COMPLETOS: </th>                                    
-                                    <th style="color:#fff;">CEDULA DE IDENTIDAD: </th>   
-                                    <th style="color:#fff;">Acciones</th>                                                                 
+                                    <th style="color:#fff;">NOMBRES: </th>
+                                    <th style="color:#fff;">APELLIDOS : </th>                                    
+                                    <th style="color:#fff;">CEDULA DE IDENTIDAD: </th>    
+                                    <th style="color:#fff;">ACCIONES: </th>                                                            
                               </thead>
                               <tbody>
                             @foreach ($blogs as $blog)
@@ -30,6 +35,7 @@
                                 <td>{{ $blog->nombres }}</td>
                                 <td>{{ $blog->apellidos }}</td>
                                 <td>{{ $blog->ci }}</td>
+
                                 <td>
                                     <form action="{{ route('blogs.destroy',$blog->id) }}" method="POST" id="form" >                                        
                                         @can('Editar-formulario')
@@ -42,13 +48,11 @@
                                         <button type="submit" class="btn btn-danger">Borrar</button>
                                         @endcan
                                         @csrf
-                                        <a class="btn btn-info" href="{{ route('blogs.pdf',$blog->id) }}">PDF</a>
-                                       
-                                    </form> 
-                                   
-                                    
-                                    
-                                    
+                                        @csrf
+                                        
+                                        <a class="btn btn-success"  href="{{route('blogs.pdf',$blog->id) }}" method="GET" id="form">PDF</a>
+                                        @csrf
+                                    </form>     
                                 </td>
                             </tr>
                             @endforeach
@@ -61,6 +65,7 @@
                         </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

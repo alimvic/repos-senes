@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombres', 
+    public function users(){
+        return $this->belongsTo(Users::class, 'id');
+    }
+    protected $fillable = [
+    'nombres', 
     'apellidos', 
     'ci', 
     'cargo_user', 
@@ -20,7 +24,6 @@ class Blog extends Model
     'nom_resp', 
     'justificacion', 
     'fecha_vigencia', 
-    'nom_jef', 
-    'apell_jef', 
+    'nom_jef',  
     'cargo_jef', ];
 }
